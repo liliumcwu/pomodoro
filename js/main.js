@@ -10,13 +10,13 @@ const $tasksCompleted = document.querySelector('#tasksCompleted');
 var numTasks = 0;
 var taskArray = [];
 var timeoutID;
-var currentColor;
+var currentColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 var workTime = 25;
 var breakTime = 5;
 
 function startTask() {
   $startButton.style.visibility = 'hidden';
-  currentColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+  // currentColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
   numTasks++;
   var str = taskInput.value;
   if (!str.replace(/\s/g, '').length)
@@ -72,7 +72,9 @@ function startBreak(display) {
       $status.innerHTML = 'Break\'s over!';
       clearInterval(refreshId);
     }
-  }, 1000)
+  }, 1000);
+  currentColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+  $taskInput.style.color = currentColor;
 }
 
 function rainbow() {
@@ -109,5 +111,7 @@ $taskInput.addEventListener('keyup', function(e) {
   var keyCode = e.keyCode;
   if (keyCode === 13) startTask();
 })
+
+$taskInput.style.color = currentColor;
 $startButton.addEventListener('click', startTask);
 $configButton.addEventListener('click', changeTimes);
