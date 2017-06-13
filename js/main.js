@@ -68,13 +68,13 @@ function startBreak(display) {
     display.textContent = minutes + ":" + seconds;
 
     if (--timer < 0) {
+      currentColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+      $taskInput.style.color = currentColor;
       $startButton.style.visibility = 'visible';
       $status.innerHTML = 'Break\'s over!';
       clearInterval(refreshId);
     }
   }, 1000);
-  currentColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
-  $taskInput.style.color = currentColor;
 }
 
 function rainbow() {
