@@ -95,8 +95,9 @@ function startBreak(display) {
   else
     $tasksCompleted.innerHTML += ', <span style="color:' + currentColor + '">' + taskArray[taskArray.length - 1] + '<//span>';
 
-  if (taskArray.length < 3) timer = 60 * breakTime;
-  else timer = 60 * 2 * breakTime; // double break once 3 tasks are completed
+  timer = 60 * breakTime;
+  // if (taskArray.length < 3) timer = 60 * breakTime;
+  // else timer = 60 * 2 * breakTime; // double break once 3 tasks are completed
   // if (taskArray.length < 3) timer = breakTime; // in seconds
   // else timer = 2 * breakTime; // in seconds
 
